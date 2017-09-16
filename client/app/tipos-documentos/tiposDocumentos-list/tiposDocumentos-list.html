@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<table class="TableD">
+  <thead class="Table-Head">
+    <tr class="Table-Item">
+      <th class="Table-Celdas">Id</th>
+      <th class="Table-Celdas">Tipo</th>
+    </tr>
+  </thead>
+  <tbody class="Table-Body">
+    <tr ng-repeat="item in vm.documentos" class="Table-ngItem">
+      <td class="Table-ngCeldas">{{item.id}}</td>
+      <td class="Table-ngCeldas">{{item.descripcion}}</td>
+    </tr>
+  </tbody>
+</table>

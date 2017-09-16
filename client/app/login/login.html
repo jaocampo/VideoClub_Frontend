@@ -1,0 +1,16 @@
+<div class="container">
+	<div class="col-sm-3">
+		<h2 style="font-family:'Microsoft JhengHei UI Light'; font-weight: bold">Binvenido al login</h2>
+		<form class="userForm" ng-submit="vm.login()">
+			<label for="">Username</label>
+			<div class="form-group">
+				<input type="text" class="form-control" ng-model="vm.user.numDocumento" placeholder="username" autofocus required>
+			</div>
+			<label for="">Password</label>
+			<div class="form-group">
+				<input type="password" class="form-control" ng-model="vm.user.password" placeholder="password" required>
+			</div>
+			<button type="submit" class="btn btn-success">Iniciar</button>
+		</form>
+	</div>
+</div>

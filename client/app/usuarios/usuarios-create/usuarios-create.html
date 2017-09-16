@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<h1 class="title">This the usuarios create form</h1>
+<div class="col-md-3">
+  <form name="userForm" class="Form" ng-submit="userForm.$valid && vm.createUsuario()" novalidate>
+  <div class="form-group">
+    <label for="" class="Label-Description">Tipo Documento</label>
+    <select class="form-control" name="TipoDocumento" ng-model="vm.usuarios.tipoDocumento.id" required>
+      <option class="" ng-value="1">C.C.</option>
+      <option class="" ng-value="2">T.I.</option>
+    </select>
+  </div>
+
+
+
+
+  <div class="form-group">
+    <label for="" class="Label-Description">Documento</label>
+    <input type="text" class="form-control" name="numDocumento" ng-pattern="/^[0-9]*$/" ng-model="vm.usuarios.numDocumento"
+    ng-blur="vm.showValidarDocumento()"> <!--Se agrego el metodo dentro de la directiva ng-blur para validar si el numero de documento ya existe-->
+    <div ng-show="userForm.numDocumento.$error.pattern">Este Campo solo admite numeros</div>
+</div>
+
+
+  <!--div class="alert alert-danger" ng-show="vm.showValidaDocumento" role="alert">
+    <p>El numero de Documento ya existe</p>
+  </div-->
+
+
+
+  <div class="form-group">
+    <label for="" class="Label-Description">Apellidos</label>
+    <input type="text" name="apellido" class="form-control" ng-pattern="/^[a-zA-Z]+$/" ng-model="vm.usuarios.apellidos">
+    <div ng-show="userForm.apellido.$error.pattern">Este campo admite solo letras</div>
+</div>
+
+
+  <div class="form-group">
+    <label for="" class="Label-Description">Nombres</label>
+    <input type="text" name="nombre"class="form-control" ng-pattern="/^[a-zA-Z]*$/" ng-model="vm.usuarios.nombres">
+    <div ng-show="userForm.nombre.$error.pattern">Este campo solo admite letras</div>
+  </div>
+
+
+  <div class="form-group">
+    <label for="" class="Label-Description">Email</label>
+    <input type="text" name="email"class="form-control" ng-pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/" ng-model="vm.usuarios.email">
+    <div ng-show="userForm.email.$error.pattern">Caracteres invalidos</div>
+</div>
+  <div class="form-group">
+    <label for="" class="Label-Description">Password</label>
+    <input type="password" class="form-control" ng-model="vm.usuarios.password">
+  </div>
+  <div class="form-group">
+    <label for="" class="Label-Description">Sexo</label>
+    <select class="form-control" name="Genery" ng-model="vm.usuarios.sexo" required>
+      <option class="" ng-value="F">F</option>
+      <option class="" ng-value="M">M</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="" class="Label-Description">Departamento</label>
+    <select name="departamento" class="form-control" ng-model="vm.idDepartamento" ng-change="vm.getCiudades()">
+      <option class="" ng-value="{{item.id}}" ng-repeat="item in vm.departamentos">{{item.nombre}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="" class="Label-Description">Ciudad</label>
+    <select name="ciudades" class="form-control" ng-model="vm.usuarios.ciudad.id">
+      <option ng-value="{{item.id}}" ng-repeat="item in vm.ciudades">{{item.nombre}}</option>
+    </select>
+  </div>
+  <button type="submit" class="Button-Submit" ng-disabled="userForm.$invalid">Registrar</button>
+</form>
+</div>

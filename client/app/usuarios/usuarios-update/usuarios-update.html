@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<h1 class="title">This the update form</h1>
+<div class="col-md-3">
+  <form name="userForm" class="Form" ng-submit="userForm.$valid && vm.updateUsuario()" novalidate>
+  <div class="form-group">
+    <label for="" class="Label-Description">Tipo Documento</label>
+    <select class="form-control" name="TipoDocumento" ng-model="vm.usuarios.tipoDocumento.id" required>
+      <option class="" ng-value="1">C.C.</option>
+      <option class="" ng-value="2">T.I.</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="" class="Label-Description">Documento</label>
+    <input type="text" class="form-control" ng-model="vm.usuarios.numDocumento"
+    ng-blur="vm.showValidarDocumento()">
+    <!--Se agrego el metodo dentro de la directiva ng-blur para validar si el numero de documento ya existe-->
+  </div>
+  <div class="alert alert-danger" ng-show="vm.showValidaDocumento" role="alert">
+    <p>El numero de Documento ya existe</p>
+  </div>
+  <div class="form-group">
+    <label for="" class="Label-Description">Apellidos</label>
+    <input type="text" class="form-control" ng-model="vm.usuarios.apellidos">
+  </div>
+  <div class="form-group">
+    <label for="" class="Label-Description">Nombres</label>
+    <input type="text" class="form-control" ng-model="vm.usuarios.nombres">
+  </div>
+  <div class="form-group">
+    <label for="" class="Label-Description">Email</label>
+    <input type="text" class="form-control" ng-model="vm.usuarios.email">
+  </div>
+  <div class="form-group">
+    <label for="" class="Label-Description">Password</label>
+    <input type="password" class="form-control" ng-model="vm.usuarios.password">
+  </div>
+  <div class="form-group">
+    <label for="" class="Label-Description">Sexo</label>
+    <select class="form-control" name="Genery" ng-model="vm.usuarios.sexo" required>
+      <option class="" ng-value="F">F</option>
+      <option class="" ng-value="M">M</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="" class="Label-Description">Departamento</label>
+    <select name="departamento" class="form-control" ng-model="vm.idDepartamento" ng-change="vm.getCiudades()">
+      <option class="" ng-value="{{item.id}}" ng-repeat="item in vm.departamentos">{{item.nombre}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="" class="Label-Description">Ciudad</label>
+    <select name="ciudades" class="form-control" ng-model="vm.usuarios.ciudad.id">
+      <option ng-value="{{item.id}}" ng-repeat="item in vm.ciudades">{{item.nombre}}</option>
+    </select>
+  </div>
+  <button type="submit" class="Button-Submit" ng-disabled="userForm.$invalid">Actualizar</button>
+</form>
+</div>

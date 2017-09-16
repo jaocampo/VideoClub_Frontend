@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+  <table class="Table">
+    <thead class="Table-Head">
+      <tr class="Table-Item">
+        <th class="Table-Celdas">Nombre</th>
+        <th class="Table-Celdas">Apellidos</th>
+        <th class="Table-Celdas">Email</th>
+        <th class="Table-Celdas">NUmDocumento</th>
+        <th class="Table-Celdas">Sexo</th>
+        <th class="Table-Celdas">ID</th>
+        <th class="Table-Celdas">Accion</th>
+      </tr>
+    </thead>
+    <tbody class="Table-Body">
+      <tr ng-repeat="item in vm.usuarios" class="Table-ngItem">
+        <td class="Table-ngCeldas">{{item.nombres}}</td>
+        <td class="Table-ngCeldas">{{item.apellidos}}</td>
+        <td class="Table-ngCeldas">{{item.email}}</td>
+        <td class="Table-ngCeldas">{{item.numDocumento}}</td>
+        <td class="Table-ngCeldas">{{item.sexo}}</td>
+        <td class="Table-ngCeldas">{{item.id}}</td>
+        <td class="Table-ngCeldas">
+          <a ui-sref="usuarios-update({idUsuario:item.id})" class="btn btn-primary">Editar</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<table class="TableC">
+  <thead class="Table-Head">
+    <tr class="Table-Item">
+      <th class="Table-Celdas">Id</th>
+      <th class="Table-Celdas">Codigo</th>
+      <th class="Table-Celdas">Nombre</th>
+      <th class="Table-Celdas">Departamento</th>
+      <th class="Table-Celdas">Pais</th>
+    </tr>
+  </thead>
+  <tbody class="Table-Body">
+    <tr ng-repeat="item in vm.ciudades" class="Table-ngItem">
+      <td class="Table-ngCeldas">{{item.id}}</td>
+      <td class="Table-ngCeldas">{{item.cod}}</td>
+      <td class="Table-ngCeldas">{{item.nombre}}</td>
+      <td class="Table-ngCeldas">{{item.departamento.nombre}}</td>
+      <td class="Table-ngCeldas">{{item.departamento.pais.nombre}}</td>
+    </tr>
+  </tbody>
+</table>

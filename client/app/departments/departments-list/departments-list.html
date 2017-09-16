@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<table class="TableT">
+  <thead class="Table-Head">
+    <tr class="Table-Item">
+      <th class="Table-Celdas">Id</th>
+      <th class="Table-Celdas">Nombre</th>
+      <th class="Table-Celdas">Pais</th>
+    </tr>
+  </thead>
+  <tbody class="Table-Body">
+    <tr ng-repeat="item in vm.departaments" class="Table-ngItem">
+      <td class="Table-ngCeldas">{{item.id}}</td>
+      <td class="Table-ngCeldas">{{item.nombre}}</td>
+      <td class="Table-ngCeldas">{{item.pais.nombre}}</td>
+    </tr>
+  </tbody>
+</table>
